@@ -6,9 +6,23 @@
 # @Description : STOP wishing START doing. 
 
 from flask import Flask, render_template
+# from flask_sqlalchemy import SQLAlchemy
+# import pymysql
 
 app = Flask(__name__)
+# 传入数据库连接
+# 定义数据库连接
+# app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:admin@localhost:3306/movie"
+# app.config["SQLACHEMY_TRACK_MODIFICATIONS"] = True
+"""
+获取随即密码
+> import uuid
+> uuid.uuid4().hex
+> '4e63cc22adf245799549c36e46918681'
+"""
+# app.config["SECRET_KEY"] = '4e63cc22adf245799549c36e46918681'
 app.debug = True
+# db = SQLAlchemy(app)
 
 from app.home import home as home_blueprint
 from app.admin import admin as admin_blueprint

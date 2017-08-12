@@ -10,9 +10,11 @@
 # sys.setdefaultencoding("utf-8")
 
 
+
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+# from app import db
+from flask_sqlalchemy import SQLAlchemy
 import pymysql
 
 app = Flask(__name__)
@@ -22,7 +24,6 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:admin@localhost:33
 app.config["SQLACHEMY_TRACK_MODIFICATIONS"] = True
 
 db = SQLAlchemy(app)
-
 
 # 会员数据模型
 class User(db.Model):
@@ -209,5 +210,26 @@ class Oplog(db.Model):
         return "<Oplog %r>" % self.id
 
 
-if __name__=="__main__":
-    db.create_all()
+if __name__ == "__main__":
+    #db.create_all()
+    
+    role = Role(
+        name="超级管理员",
+        auths=""
+    )
+    db.session.add(role)
+    db.session.commit()
+    # from werkzeug.security import generate_password_hash
+    #
+    # admin = Admin(
+    #     name="imoocmovie1",
+    #     pwd = generate_password_hash("imoocmovie1"),
+    #     is_super=0,
+    #     role_id=1
+    # )
+    # db.session.add(admin)
+    # db.session.commit()
+
+
+
+

@@ -7,6 +7,7 @@
 
 from . import admin
 from flask import render_template, redirect, url_for
+from app.admin.forms import LoginForm
 
 
 @admin.route("/")
@@ -14,9 +15,14 @@ def index():
     return render_template("admin/index.html")
 
 
-@admin.route("/login/")
+# 登录
+@admin.route("/login/", methods=["GET", "POST"])
 def login():
-    return render_template("admin/login.html")
+    form = LoginForm()
+    # 提交的时候进行验证
+    if form.validate_on_submit():
+        data = form.data
+    return render_template("admin/login.html", form=form)
 
 
 @admin.route("/logout/")
@@ -92,3 +98,33 @@ def adminloginlog_list():
 @admin.route("/userloginlog/list/")
 def userloginlog_list():
     return render_template("admin/userloginlog_list.html")
+
+
+@admin.route("/role/add/")
+def role_add():
+    return render_template("admin/role_add.html")
+
+
+@admin.route("/role/list/")
+def role_list():
+    return render_template("admin/role_list.html")
+
+
+@admin.route("/auth/add/")
+def auth_add():
+    return render_template("admin/auth_add.html")
+
+
+@admin.route("/auth/list/")
+def auth_list():
+    return render_template("admin/auth_list.html")
+
+
+@admin.route("/admin/add/")
+def admin_add():
+    return render_template("admin/admin_add.html")
+
+
+@admin.route("/admin/list/")
+def admin_list():
+    return render_template("admin/admin_list.html")
