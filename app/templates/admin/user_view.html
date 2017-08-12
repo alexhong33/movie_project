@@ -1,7 +1,6 @@
 {% extends "admin/admin.html" %}
 
 {% block css %}
-
 <style>
     .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
         vertical-align: middle;
@@ -14,6 +13,8 @@
 </style>
 
 {% endblock %}
+
+{% block content %}
 <!--内容-->
 <section class="content-header">
     <h1>微电影管理系统</h1>
@@ -80,16 +81,14 @@
     </div>
 </section>
 <!--内容-->
-{% block content %}
-
 
 {% endblock %}
 {% block js %}
 
 <script>
     $(document).ready(function () {
-        $("#g-2").addClass("active");
-        $("#g-2-1").addClass("active");
+        $("#g-5").addClass("active");
+        $("#g-5-1").addClass("active");
     });
 </script>
 {% endblock %}

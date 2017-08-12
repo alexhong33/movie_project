@@ -67,3 +67,28 @@ def user_list():
 @admin.route("/user/view/")
 def user_view():
     return render_template("admin/user_view.html")
+
+
+@admin.route("/comment/list/")
+def comment_list():
+    return render_template("admin/comment_list.html")
+
+
+@admin.route("/moviecol/list/")
+def moviecol_list():
+    return render_template("admin/moviecol_list.html")
+
+
+@admin.route("/oplog/list/")
+def oplog_list():
+    return render_template("admin/oplog_list.html")
+
+
+@admin.route("/adminloginlog/list/")
+def adminloginlog_list():
+    return render_template("admin/adminloginlog_list.html")
+
+
+@admin.route("/userloginlog/list/")
+def userloginlog_list():
+    return render_template("admin/userloginlog_list.html")
