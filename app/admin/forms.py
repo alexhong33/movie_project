@@ -10,6 +10,7 @@ from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, ValidationError
 from app.models import Admin
 
+
 class LoginForm(FlaskForm):
     # 管理员登录表单
     account = StringField(
@@ -25,7 +26,7 @@ class LoginForm(FlaskForm):
         render_kw={
             "class": "form-control",
             "placeholder": "请输入账号！",
-            #"required": "required"
+            # "required": "required"
         }
     )
 
@@ -42,7 +43,7 @@ class LoginForm(FlaskForm):
         render_kw={
             "class": "form-control",
             "placeholder": "请输入密码！",
-            #"required": "required"
+            # "required": "required"
         }
     )
     submit = SubmitField(
@@ -57,3 +58,5 @@ class LoginForm(FlaskForm):
         admin = Admin.query.filter_by(name=account).count()
         if admin == 0:
             raise ValidationError("账号不存在!")
+
+
