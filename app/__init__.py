@@ -8,6 +8,7 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 import pymysql
+import os
 
 app = Flask(__name__)
 #传入数据库连接
@@ -22,6 +23,7 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = True
 > '4e63cc22adf245799549c36e46918681'
 """
 app.config["SECRET_KEY"] = '4e63cc22adf245799549c36e46918681'
+app.config["UP_DIR"] = os.path.join(os.path.abspath(os.path.dirname(__file__)), "static/uploads/")
 app.debug = True
 db = SQLAlchemy(app)
 
