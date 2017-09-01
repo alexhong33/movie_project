@@ -125,7 +125,7 @@ class MovieForm(FlaskForm):
     star = SelectField(
         label="星级",
         validators=[
-            DataRequired("请上传星级!")
+            DataRequired("请选择星级!")
         ],
         coerce=int,
         choices=[(1, "1星"), (2, "2星"), (3, "3星"), (4, "4星"), (5, "5星")],
@@ -137,7 +137,7 @@ class MovieForm(FlaskForm):
     tag_id = SelectField(
         label="标签",
         validators=[
-            DataRequired("请上传标签!")
+            DataRequired("请选择标签!")
         ],
         coerce=int,
         choices=[(v.id, v.name) for v in tags],
@@ -172,12 +172,12 @@ class MovieForm(FlaskForm):
     release_time = StringField(
         label="上映时间",
         validators=[
-            DataRequired("请输入上映时间!")
+            DataRequired("请选择上映时间!")
         ],
         description="上映时间",
         render_kw={
             "class": "form-control",
-            "placeholder": "请输入上映时间！",
+            "placeholder": "请选择上映时间！",
             "id": "input_release_time"
         }
     )
